@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'signup_screen.dart'; // Import your signup screen here
-import 'widgets.dart'; // For BorderedCircleImage
+import 'signup_screen.dart';
+import 'widgets.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -25,7 +25,21 @@ class _SignInScreenState extends State<SignInScreen> {
     final username = _usernameController.text;
     final password = _passwordController.text;
     print('Username: $username, Password: $password');
-    // Add your sign-in logic here (authentication, API calls, etc.)
+    // TODO: Add authentication logic
+  }
+
+  InputDecoration _inputDecoration(String label, IconData icon) {
+    return InputDecoration(
+      labelText: label,
+      labelStyle: const TextStyle(color: Color(0xFF00FF66)),
+      enabledBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFF00FF66), width: 1.5),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFF00FF66), width: 2.0),
+      ),
+      prefixIcon: Icon(icon, color: const Color(0xFF00FF66)),
+    );
   }
 
   @override
@@ -33,9 +47,12 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.deepPurple.shade400, Colors.green.shade300],
+            colors: [
+              Color.fromARGB(255, 0, 0, 0),
+              Color.fromARGB(255, 15, 62, 17),
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -55,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
               style: GoogleFonts.pacifico(
                 fontSize: 36,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: const Color.fromARGB(255, 27, 255, 91),
                 letterSpacing: 1.5,
                 shadows: const [
                   Shadow(
@@ -69,24 +86,22 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(height: 40),
             TextField(
               controller: _usernameController,
-              decoration: const InputDecoration(
-                labelText: 'Username',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person),
-              ),
+              style: const TextStyle(color: Color(0xFF00FF66)),
+              decoration: _inputDecoration('Username', Icons.person),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _passwordController,
               obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
-              ),
+              style: const TextStyle(color: Color(0xFF00FF66)),
+              decoration: _inputDecoration('Password', Icons.lock),
             ),
             const SizedBox(height: 24),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF00FF66),
+                foregroundColor: Colors.black,
+              ),
               onPressed: _signIn,
               child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
@@ -113,7 +128,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color(0xFF00FF66),
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
                     ),
