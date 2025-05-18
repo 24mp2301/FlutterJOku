@@ -72,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
               style: GoogleFonts.pacifico(
                 fontSize: 36,
                 fontWeight: FontWeight.w500,
-                color: const Color.fromARGB(255, 27, 255, 91),
+                color: const Color.fromARGB(255, 255, 255, 255),
                 letterSpacing: 1.5,
                 shadows: const [
                   Shadow(

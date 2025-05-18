@@ -66,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     style: GoogleFonts.pacifico(
                       fontSize: 36,
                       fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 27, 255, 91),
+                      color: Color.fromARGB(255, 255, 255, 255),
                       letterSpacing: 1.5,
                       shadows: [
                         Shadow(
